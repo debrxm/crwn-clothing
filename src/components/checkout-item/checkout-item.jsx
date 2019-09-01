@@ -15,17 +15,28 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
-        <div className="arrow" onClick={() => removeItem(cartItem)}>
-          &#10094;
-        </div>
+        {quantity === 1 ? null : (
+          <div className="arrow" onClick={() => removeItem(cartItem)}>
+            &#8722;
+          </div>
+        )}
         <span className="value">{quantity}</span>
         <div className="arrow" onClick={() => addItem(cartItem)}>
-          &#10095;
+          &#43;
         </div>
       </span>
-      <span className="price">{price}</span>
+      <span className="price">${price}</span>
       <div className="remove-button" onClick={() => clearItem(cartItem)}>
-        &#10005;
+        <div className="icon-trash" style={{ float: 'left' }}>
+          <div className="trash-lid" style={{ backgroundColor: 'red' }}></div>
+          <div
+            className="trash-container"
+            style={{ backgroundColor: 'red' }}
+          ></div>
+          <div className="trash-line-1"></div>
+          <div className="trash-line-2"></div>
+          <div className="trash-line-3"></div>
+        </div>
       </div>
     </div>
   );
