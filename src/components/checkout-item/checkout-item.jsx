@@ -25,7 +25,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
           &#43;
         </div>
       </span>
-      <span className="price">${price}</span>
+      <span className="price">#{price * 300}</span>
       <div className="remove-button" onClick={() => clearItem(cartItem)}>
         <div className="icon-trash" style={{ float: 'left' }}>
           <div className="trash-lid" style={{ backgroundColor: 'red' }}></div>
@@ -48,7 +48,4 @@ const mapDispatchToProps = dispatch => ({
   removeItem: item => dispatch(removeItem(item))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(CheckoutItem);
+export default connect(null, mapDispatchToProps)(CheckoutItem);
